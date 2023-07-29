@@ -3,6 +3,8 @@ import websockets.exceptions
 import httpx
 import json
 import openai
+import os
+from dotenv import load_dotenv
 
 dotenv_path = "../../.env"
 load_dotenv(dotenv_path)

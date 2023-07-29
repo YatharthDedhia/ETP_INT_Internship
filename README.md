@@ -116,7 +116,7 @@ For backend and webscraping:
 3. Run the following command to clone the repository:
 
 ```shell
-git clone https://github.com/YatharthDedhia/ETP_Project.git
+git clone https://github.com/YatharthDedhia/ETP_Project.git --recursive
 cd ETP_Project
 ```
 4. Create a virtual environment to isolate the project dependencies (optional but recommended):
