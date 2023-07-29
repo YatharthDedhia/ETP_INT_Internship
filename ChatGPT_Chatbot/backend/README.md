@@ -45,7 +45,7 @@ CLAUDE_COOKIE=your_claude_cookie (not needed for backend)
 You can run the web scraper by executing the following code in your Python environment:
 
 ```shell
-uvicorn main:app --host 0.0.0.0 --port 8080 --reload
+uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 ```
 
 
