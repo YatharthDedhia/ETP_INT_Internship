@@ -33,10 +33,10 @@ The project's file structure is as follows:
 
 ```shell
 # On Windows
-venv\Scripts\activate
+myenv\Scripts\activate
 
 # On macOS/Linux
-source venv/bin/activate
+source myenv/bin/activate
 ```
 
 2. Obtain API keys for OpenAI's ChatGPT and ClaudeAI's Cookie. Save them in the `.env` file as follows:
