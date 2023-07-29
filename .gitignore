@@ -4,6 +4,7 @@ csv
 html
 json
 dump
+myenv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -14,7 +14,7 @@ import os
 from claude_api import Client
 from dotenv import load_dotenv
 
-dotenv_path = "../../.env"
+dotenv_path = "../.env"
 load_dotenv(dotenv_path)
 openai.api_key = os.environ.get("API_KEY")
 
@@ -23,9 +23,17 @@ logger = logging.getLogger("Scraper")
 logger.setLevel(logging.DEBUG)
 formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
 
+output_dir = "output"
+if not os.path.exists(output_dir):
+    os.makedirs(output_dir)
+
+# Set up the logger and create the "scraper.log" file if it does not exist
+log_file_path = os.path.join(output_dir, "scraper.log")
+file_handler = logging.FileHandler(log_file_path)
+
 # Check if logger has handlers
 if not logger.hasHandlers():
-    file_handler = logging.FileHandler("output/scraper.log")
+    file_handler = logging.FileHandler(log_file_path)
     file_handler.setLevel(logging.DEBUG)
     file_handler.setFormatter(formatter)
 
@@ -166,6 +174,10 @@ class Scraper:
         driver.get(str(url))
         soup = BeautifulSoup(driver.page_source, 'html.parser')
         website = website.lower()
+
+        html_dir = "html"
+        if not os.path.exists(html_dir):
+            os.makedirs(html_dir)
         output_file_path = f'./html/{website}.html'
         with open(output_file_path, 'w') as output_file:
             output_file.write(str(soup.body))
@@ -203,8 +215,6 @@ class Scraper:
             product_elements = soup.find_all('li', class_=tags[website])
         if len(product_elements) > 0:
             logger.debug(f'{len(product_elements)} Elements extracted')
-        elif(len(product_elements) <= 0):
-            logger.error("Error extracting elements")
         return product_elements
 
     def get_body(self, soup):
@@ -301,7 +311,7 @@ class Scraper:
         claude = Client(cookie)
         conversation_id = None
 
-        api_key = os.environ['API_KEY']
+        api_key = os.environ.get("API_KEY")
         scraper = Scraper(api_key)
 
         json_format = str(self.temp_json)
@@ -412,6 +422,9 @@ class Scraper:
         results_str = str(results)
         results_json = results_str.replace("'", '"')
 
+        html_dir = "json"
+        if not os.path.exists(html_dir):
+            os.makedirs(html_dir)
         output_file_path = f'./json/{website}.json'
         with open(output_file_path, 'w') as output_file:
             output_file.write(str(results_json))
@@ -451,6 +464,9 @@ class Scraper:
         results_str = str(results)
         results_json = results_str.replace("'", '"')
 
+        html_dir = "json"
+        if not os.path.exists(html_dir):
+            os.makedirs(html_dir)
         output_file_path = f'./json/{website}.json'
         with open(output_file_path, 'w') as output_file:
             output_file.write(str(results_json))
@@ -470,6 +486,10 @@ def run(api_key, website_list, search_query, num_results,service):
             df = scraper.scrape(website, search_query, num_results)
         if df.empty:
             logger.error("ERROR")
+
+        html_dir = "csv"
+        if not os.path.exists(html_dir):
+            os.makedirs(html_dir)
         df.to_csv(f'./csv/{website}.csv')
         logger.info(f"Created {website}.csv")
 
@@ -492,7 +512,7 @@ def get_cookie():
     return cookie
 
 # User Inputs
-api_key = os.environ[API_KEY]
+api_key = os.environ.get("API_KEY")
 website_list = get_website_list()
 search_query = input("Enter Search Query:\n")
 number_of_results = int(input("Enter number of results required:\n"))
