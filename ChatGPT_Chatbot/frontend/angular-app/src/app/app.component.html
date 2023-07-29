@@ -1,0 +1,9 @@
+<div>
+  <h1>ChatGPT Clone</h1>
+  <form (ngSubmit)="sendMessage($event)">
+    <input type="text" [(ngModel)]="inputValue" name="inputValue" placeholder="Type a message..." />
+
+    <button type="submit">Send</button>
+  </form>
+  <p>{{ receivedMessage }}</p>
+</div>

@@ -1,0 +1,45 @@
+// chat-app.component.scss
+
+$primaryColor: #007bff;
+$secondaryColor: #6c757d;
+
+div {
+    text-align: center;
+    margin-top: 20px;
+}
+
+h1 {
+    color: $primaryColor;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+
+    input[type="text"] {
+        padding: 8px;
+        border: 1px solid $secondaryColor;
+        border-radius: 4px;
+        outline: none;
+        font-size: 14px;
+        width: 300px;
+        margin-right: 10px;
+    }
+
+    button {
+        padding: 8px 16px;
+        background-color: $primaryColor;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+}
+
+p {
+    margin-top: 20px;
+    font-size: 26px;
+    color: $secondaryColor;
+}
