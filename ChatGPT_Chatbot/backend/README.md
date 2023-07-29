@@ -24,36 +24,7 @@ The project's file structure is as follows:
 
 ## Getting Started
 
-### Prerequisites
-
-Before running the backend, make sure you have the following:
-
-1. Python 3.8 or higher installed on your system.
-2. An API key for OpenAI's ChatGPT. You can obtain it [here](https://platform.openai.com/account/api-keys).
-
-### Installation
-
-1. Open your terminal or command prompt.
-
-2. Navigate to the directory where you want to clone the repository.
-
-3. Run the following command to clone the repository:
-
-```shell
-git clone <repository_url>
-cd <dir_name>
-```
-
-4. (Optional but recommended) Create a virtual environment to isolate the project dependencies:
-```shell
-# On Windows
-python -m venv venv
-
-# On macOS/Linux
-python3 -m venv venv
-```
-
-5. Activate the virtual environment:
+1. Activate the virtual environment:
 ```shell
 # On Windows
 venv\Scripts\activate
@@ -62,16 +33,11 @@ venv\Scripts\activate
 source venv/bin/activate
 ```
 
-6. Install the required Python packages using the provided requirements.txt file:
-```shell
-pip install -r requirements.txt
-```
-
-7. Obtain API keys for OpenAI's ChatGPT and ClaudeAI's Cookie. Save them in the `.env` file as follows:
+1. Obtain API keys for OpenAI's ChatGPT. Save it in the `.env` file as follows:
 
 ```
 OPENAI_API_KEY=your_openai_api_key
-CLAUDE_COOKIE=your_claude_cookie
+CLAUDE_COOKIE=your_claude_cookie (not needed for backend)
 ```
 
 ### Execution
