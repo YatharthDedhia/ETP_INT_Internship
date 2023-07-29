@@ -42,7 +42,7 @@ source venv/bin/activate
 2. Obtain API keys for OpenAI's ChatGPT and ClaudeAI's Cookie. Save them in the `.env` file as follows:
 
 ```
-OPENAI_API_KEY=your_openai_api_key
+API_KEY=your_openai_api_key
 CLAUDE_COOKIE=your_claude_cookie
 ```
 
