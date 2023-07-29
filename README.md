@@ -144,7 +144,7 @@ pip install -r requirements.txt
 7. Obtain API keys for [OpenAI's ChatGPT](https://platform.openai.com/account/api-keys) and [ClaudeAI's Cookie](https://github.com/KoushikNavuluri/Claude-API#usage). Save them in the `.env` file as follows:
 
 ```
-OPENAI_API_KEY=your_openai_api_key
+API_KEY=your_openai_api_key
 CLAUDE_COOKIE=your_claude_cookie
 ```
 
